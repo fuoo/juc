@@ -1,2 +1,5 @@
 .idea/
 juc.iml
+*.class
+*.iml
+target/
