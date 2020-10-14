@@ -11,7 +11,8 @@ public class Main {
     public static void main(String[] args) throws Exception{
         Producer producer = new Producer();
 
-        new Thread(() -> {
+        //========================synchronized===========================
+/*        new Thread(() -> {
             for (int i = 0; i < 10; i++) {
                 producer.production();
             }
@@ -32,6 +33,31 @@ public class Main {
         new Thread(() -> {
             for (int i = 0; i < 10; i++) {
                 producer.consumption();
+            }
+        }, "消费___").start();*/
+
+        //========================新版Lock===========================
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                producer.production2();
+            }
+        }, "生产___").start();
+
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                producer.consumption2();
+            }
+        }, "消费___").start();
+
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                producer.production2();
+            }
+        }, "生产___").start();
+
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                producer.consumption2();
             }
         }, "消费___").start();
 

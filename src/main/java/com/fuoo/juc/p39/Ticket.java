@@ -12,7 +12,12 @@ public class Ticket {
     private  int num = 30;
     private Lock lock = new ReentrantLock();
 
-    // 使用 synchronized
+    /**
+     * @Description: 使用 synchronized
+     * @Author: fuoo
+     * @Date: 2020/10/14 10:44
+     * @return: void
+     */
     public synchronized void buyTicket(){
         if (num > 0) {
             System.out.println(Thread.currentThread().getName() + "  卖出票数号：" + num);
@@ -22,7 +27,12 @@ public class Ticket {
         }
     }
 
-    // 使用Lock
+    /**
+     * @Description: 使用Lock
+     * @Author: fuoo
+     * @Date: 2020/10/14 10:44
+     * @return: void
+     */
     public void buyTicket2() {
         lock.lock();
         try {
